@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="매일의 할 일을 간편하게 관리하는 투두 리스트">
+  <title>오늘의 할 일 | To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="todo-card" aria-labelledby="page-title">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">MY DAILY PLAN</p>
+          <h1 id="page-title">오늘의 할 일</h1>
+          <p class="subtitle">작은 계획이 모여 멋진 하루가 돼요.</p>
+        </div>
+        <div class="date-badge" aria-label="오늘 날짜">
+          <span id="day-name">오늘</span>
+          <strong id="today-date"></strong>
+        </div>
+      </header>
+
+      <form class="todo-form" id="todo-form">
+        <label class="sr-only" for="todo-input">새 할 일</label>
+        <input id="todo-input" type="text" placeholder="새로운 할 일을 입력해 보세요" maxlength="100" autocomplete="off" required>
+        <button type="submit" aria-label="할 일 추가">추가 <span aria-hidden="true">＋</span></button>
+      </form>
+
+      <div class="summary-row">
+        <div>
+          <span class="summary-label">진행 상황</span>
+          <strong id="progress-text">0개의 할 일</strong>
+        </div>
+        <div class="progress-track" aria-label="할 일 진행률">
+          <span id="progress-bar"></span>
+        </div>
+      </div>
+
+      <div class="filter-row" role="group" aria-label="할 일 필터">
+        <button class="filter-button active" type="button" data-filter="all">전체</button>
+        <button class="filter-button" type="button" data-filter="active">진행 중</button>
+        <button class="filter-button" type="button" data-filter="completed">완료</button>
+        <button class="clear-button" id="clear-completed" type="button">완료 항목 지우기</button>
+      </div>
+
+      <ul class="todo-list" id="todo-list" aria-live="polite"></ul>
+      <div class="empty-state" id="empty-state">
+        <div class="empty-icon" aria-hidden="true">✦</div>
+        <p id="empty-title">아직 등록된 할 일이 없어요</p>
+        <span>새로운 계획을 추가해 보세요!</span>
+      </div>
+      <footer class="card-footer"><span aria-hidden="true">↳</span> 할 일은 이 기기에 자동으로 저장됩니다.</footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
